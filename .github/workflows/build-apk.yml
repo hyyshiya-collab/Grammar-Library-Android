@@ -5,8 +5,12 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - 'Grammar_Library_Android_Checkpoint2.zip'
       - 'GrammarLibrary_Android_Checkpoint2.zip'
       - '.github/workflows/build-apk.yml'
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -23,9 +27,7 @@ jobs:
           java-version: '17'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          accept-android-sdk-licenses: true
+        uses: android-actions/setup-android@v4
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
